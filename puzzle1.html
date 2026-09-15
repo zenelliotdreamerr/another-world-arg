@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ANOTHER WORLD</title>
+    <title>PUZZLE 1 — ANOTHER WORLD</title>
 
     <style>
         body {
@@ -13,7 +13,7 @@
             color: white;
             font-family: monospace;
 
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,9 +26,9 @@
         }
 
         h1 {
-            font-size: 48px;
-            letter-spacing: 10px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            letter-spacing: 8px;
+            margin-bottom: 40px;
         }
 
         p {
@@ -37,19 +37,33 @@
             line-height: 1.8;
         }
 
-        .begin {
-            display: inline-block;
+        .puzzle {
             margin-top: 40px;
-            padding: 14px 35px;
-
-            color: white;
-            border: 1px solid white;
-            text-decoration: none;
-
-            transition: 0.2s;
+            padding: 25px;
+            border: 1px solid #333;
         }
 
-        .begin:hover {
+        input {
+            margin-top: 25px;
+            padding: 12px;
+            background: #050505;
+            color: white;
+            border: 1px solid #555;
+            font-family: monospace;
+            text-align: center;
+        }
+
+        button {
+            margin-left: 8px;
+            padding: 12px 20px;
+            background: #050505;
+            color: white;
+            border: 1px solid white;
+            font-family: monospace;
+            cursor: pointer;
+        }
+
+        button:hover {
             background: white;
             color: black;
         }
@@ -60,21 +74,35 @@
 
     <div class="container">
 
-        <h1>ANOTHER WORLD</h1>
+        <h1>PUZZLE 01</h1>
 
-        <p>
-            There is more than one way to see it.
-        </p>
+        <div class="puzzle">
 
-        <p>
-            Somewhere, something is waiting.
-        </p>
+            <p>
+                YOUR PUZZLE GOES HERE.
+            </p>
 
-        <a class="begin" href="puzzle1.html">
-            BEGIN
-        </a>
+            <input type="text" id="answer" placeholder="ENTER ANSWER">
+
+            <button onclick="checkAnswer()">SUBMIT</button>
+
+            <p id="result"></p>
+
+        </div>
 
     </div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById("answer").value.trim().toUpperCase();
+
+            if (answer === "YOURANSWER") {
+                document.getElementById("result").textContent = "GOODJOB.";
+            } else {
+                document.getElementById("result").textContent = "INCORRECT.";
+            }
+        }
+    </script>
 
 </body>
 </html>
